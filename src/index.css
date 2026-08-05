@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E2C97E;
+    --gold-dark: #A07830;
+    --charcoal: #1A1A1A;
+    --charcoal-mid: #2A2A2A;
+    --charcoal-soft: #363636;
+  }
+
+  body {
+    @apply antialiased;
+    background-color: #F5F4F0;
+    color: #1A1A1A;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn text-white shadow-sm;
+    background-color: #C9A84C;
+    color: #1A1A1A;
+  }
+  .btn-primary:hover { background-color: #B8962E; }
+  .btn-primary:active { background-color: #A07830; }
+
+  .btn-secondary {
+    @apply btn bg-white border text-slate-700 border-stone-200 hover:bg-stone-50 hover:border-stone-300;
+  }
+
+  .btn-danger {
+    @apply btn bg-red-50 text-red-600 border border-red-200 hover:bg-red-100;
+  }
+
+  .btn-ghost {
+    @apply btn text-stone-600 hover:bg-stone-100;
+  }
+
+  .btn-icon {
+    @apply btn-ghost p-2 rounded-lg;
+  }
+
+  .card {
+    @apply bg-white rounded-xl border border-stone-200 shadow-sm;
+  }
+
+  .input {
+    @apply w-full rounded-lg border border-stone-200 bg-white px-3.5 py-2.5 text-sm text-stone-800 placeholder:text-stone-400 transition-colors focus:outline-none;
+  }
+  .input:focus {
+    border-color: #C9A84C;
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.15);
+  }
+
+  .label {
+    @apply block text-sm font-medium text-stone-600 mb-1.5;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-fade-in { animation: fadeIn 0.2s ease-out; }
+.animate-slide-in { animation: slideIn 0.2s ease-out; }
+.animate-scale-in { animation: scaleIn 0.15s ease-out; }
+.animate-spin { animation: spin 0.7s linear infinite; }
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #d1cdc7; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #a09890; }
